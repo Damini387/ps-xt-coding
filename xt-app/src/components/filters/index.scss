@@ -34,6 +34,12 @@
     .filters {
         display: flex;
         flex-direction: column;
-        max-width: 150px;
+
+        .launchYear {
+            display: flex;
+            flex-direction: column;
+            flex-wrap: wrap;
+            width: 150px;
+        }
     }
 }

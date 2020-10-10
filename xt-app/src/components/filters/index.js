@@ -5,6 +5,7 @@ import Button from '../../common/Button';
 
 import './index.scss';
 
+const years = ["2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"];
 
 const Filters = () => {
     const [launchYrs, setLaunchYrs] = useState();
@@ -25,6 +26,12 @@ const Filters = () => {
 
     }
 
+    const getButtonsOfYears = () => {
+        return years && years.map((year, index) => {
+            return <Button value={year} key={index} />
+        })
+    }
+
     return (
         <div className="filters">
             <h3>Filters</h3>
@@ -32,7 +39,8 @@ const Filters = () => {
                 <div className="heading">Launch Year</div>
                 <hr />
                 <div className="allYears">
-                    {getAllYears()}
+                    {/* {getAllYears()} */}
+                    {getButtonsOfYears()}
                 </div>
             </div>
             <div className="successLaunch">
