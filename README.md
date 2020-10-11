@@ -1,6 +1,6 @@
 # ps-xt-coding
 
-Clone xp-app to see the react application made for "launches by SpaceX program"
+git clone `xp-app` to see the react application made for "launches by SpaceX program"
 
 To run the Application, run below commands:
 - `yarn install`
@@ -10,5 +10,12 @@ To run the Application, run below commands:
 - `npm run server` - to run the node server, in order to fetch the launch programs
 
 - `yarn run test` - to run the Jest
+
+# Improvements (TODO)
+- Add lazy loading
+- Add proper error messages when data is not fetched
+
+# Issues
+- Make clicks smoother
 
 Thanks!
