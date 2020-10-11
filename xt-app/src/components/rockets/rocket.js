@@ -9,11 +9,11 @@ const Rocket = (props) => {
     return (
         <div className="rocket">
             <img src={rcktImg} alt="test" className="rocketImg" />
-            <div className="rocketName">
+            <p className="rocketName">
                 {rocketName}
-            </div>
+            </p>
             <div className="missionNames">
-                Mission Ids:
+                <p className="heading">Mission Ids:</p>
                 <ul>
                     {missionIds && missionIds.map((id, index) => {
                         return <li key={index}>{id}</li>
@@ -25,15 +25,15 @@ const Rocket = (props) => {
             </div>
 
             <div className="launchYear">
-                <p>Launch Year:</p>
+                <p className="heading">Launch Year:</p>
                 <span>{launchYear}</span>
             </div>
             <div className="successFulLaunch">
-                <p>Successful Launch:</p>
+                <p className="heading">Successful Launch:</p>
                 <span>{launchSuccess}</span>
             </div>
             <div className="successfulLanding">
-                <p>Successful Landing:</p>
+                <p className="heading">Successful Landing:</p>
                 <span>{landingSuccess}</span>
             </div>
         </div>

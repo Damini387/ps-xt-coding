@@ -1,7 +1,18 @@
 .button {
-    background-color: green;
+    background-color: #c6e09b;
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
     margin: 10px;
+    width: 40%;
+
+    &:focus {
+        background-color: #7cba01;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .button {
+        width: auto;
+    }
 }
