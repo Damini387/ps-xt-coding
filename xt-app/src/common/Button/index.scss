@@ -1,7 +1,31 @@
 .button {
-    background-color: green;
+    background-color: #c6e09b;
     padding: 5px 10px;
     border: none;
     border-radius: 5px;
     margin: 10px;
+
+    &.selected {
+        background-color: #7cba01;
+    }
+
+    &:focus {
+        background-color: #7cba01;
+    }
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .button {
+        width: 40%;
+    }
+}
+
+@media screen and (min-width: 1025px) {
+    .button {
+        width: auto;
+    }
 }

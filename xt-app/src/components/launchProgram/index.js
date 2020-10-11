@@ -1,28 +1,32 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState, useEffect } from 'react';
 
 import Filters from '../filters';
 import Rockets from '../rockets';
 
 import './index.scss';
 
-const launchProgram = (props) => {
+const LaunchProgram = (props) => {
 
-    const { data } = props;
+    const [rockets, setRockets] = useState();
 
-    const handleRockets = (test) => {
-        console.log(test);
+    useEffect(() => {
+        setRockets(props.data);
+    }, [props]);
+
+    const handleRockets = (data) => {
+        setRockets(data.rockets);
     }
 
     return (
         <Fragment>
             <h2>SpaceX Launch Program</h2>
             <div className="launchPad">
-                <Filters filterRocket={(test) => handleRockets(test)} />
-                <Rockets rocketData={data} />
+                <Filters filterRockets={(data) => handleRockets(data)} />
+                <Rockets rocketData={rockets} />
             </div>
         </Fragment>
     );
 
 }
 
-export default launchProgram;
+export default LaunchProgram;

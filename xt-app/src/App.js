@@ -1,4 +1,4 @@
-import React, {useEffect, useReducer} from 'react';
+import React, { useEffect, useReducer } from 'react';
 import Axios from 'axios';
 
 import './App.css';
@@ -13,21 +13,23 @@ function App() {
   useEffect(() => {
     Axios.get("http://localhost:3030/allDetails").then(response => {
 
-        dispatch({
-            type: "ROCKET_DETAILS",
-            payload: { rocketDetails: response.data }
-        });
+      dispatch({
+        type: "ROCKET_DETAILS",
+        payload: { rocketDetails: response.data }
+      });
 
     });
 
-}, []);
+  }, []);
 
   return (
     <div className="App">
-      <LaunchProgram data={filterData && filterData.rockets}/>
-      <h3 className="center">
-        Developed By: <span>Damini Upadhyay</span>
-      </h3>
+      <LaunchProgram data={filterData && filterData.rockets} />
+      <div className="doneBy">
+        <h3 className="center"> Developed By: </h3>
+        <span className="devName"> Damini Upadhyay </span>
+      </div>
+
     </div>
   );
 }
