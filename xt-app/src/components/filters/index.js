@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useReducer } from 'react';
 import { connect } from 'react-redux';
-// import Axios from 'axios';
 
 import Button from '../../common/Button';
 
@@ -11,8 +10,6 @@ import getAllData from '../../store/reducers';
 const years = ["2006", "2007", "2008", "2009", "2010", "2011", "2012", "2013", "2014", "2015", "2016", "2017", "2018", "2019", "2020"];
 
 const Filters = (props) => {
-
-    // const [launchYrs, setLaunchYrs] = useState();
 
     const [filterData, dispatch] = useReducer(getAllData, []);
 
@@ -25,23 +22,6 @@ const Filters = (props) => {
             setDisableButton(false);
         }
     }, [props]);
-
-    // useEffect(() => {
-    //     Axios.get("http://localhost:3030/allDetails").then(response => {
-    //         const launchYears = response.data.map((data, index) => data.launch_year);
-    //         // setLaunchYrs(new Set(launchYears));
-    //         setLaunchYrs(launchYears);
-    //     });
-    // }, []);
-
-    // const getAllYears = () => {
-
-    //     return launchYrs && launchYrs.map((year, index) => {
-    //         return <Button value={year} key={index} />
-    //     });
-
-    // }
-
 
     const handleClick = (year) => {
 
@@ -79,7 +59,6 @@ const Filters = (props) => {
                 <div className="heading">Launch Year</div>
                 <hr />
                 <div className="allYears">
-                    {/* {getAllYears()} */}
                     {getButtonsOfYears()}
                 </div>
             </div>
