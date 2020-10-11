@@ -1,4 +1,5 @@
 import React, { useEffect, useState, useReducer } from 'react';
+import { connect } from 'react-redux';
 // import Axios from 'axios';
 
 import Button from '../../common/Button';
@@ -14,6 +15,16 @@ const Filters = (props) => {
     // const [launchYrs, setLaunchYrs] = useState();
 
     const [filterData, dispatch] = useReducer(getAllData, []);
+
+    const [disableButton, setDisableButton] = useState();
+
+    useEffect(() => {
+        if (props.data.length === 0) {
+            setDisableButton(true);
+        } else {
+            setDisableButton(false);
+        }
+    }, [props]);
 
     // useEffect(() => {
     //     Axios.get("http://localhost:3030/allDetails").then(response => {
@@ -33,35 +44,32 @@ const Filters = (props) => {
 
 
     const handleClick = (year) => {
-        // const url = `https://api.spacexdata.com/v3/launches?limit=100&amp;launch_success=true&amp;land_success=true&amp;launch_year=${year}`;
-        // Axios.get(url).then(response => {
-        //     const filteredData = response.data && response.data.filter((data) => {
-        //         return data.launch_year === year
-        //     });
-
-        //     console.log(filteredData);
-        // });
 
         dispatch({ type: 'FILTER_ROCKET_YEAR', payload: { showYear: year } });
 
-        props.filterRocket(filterData.filtered_rocket);
+        props.filterRockets(filterData);
+
 
     }
 
     const getButtonsOfYears = () => {
         return years && years.map((year, index) => {
-            return <Button value={year} key={index} click={(text)=>handleClick(text)}/>
-        })
+            return <Button value={year} key={index} disabled={disableButton} click={(text) => handleClick(text)} />
+        });
     }
 
     const handleLanding = (value) => {
 
         dispatch({ type: 'FILTER_LANDING', payload: { showLanding: value } });
 
+        props.filterRockets(filterData);
+
     }
 
     const handleLaunch = (value) => {
         dispatch({ type: 'FILTER_LAUNCH', payload: { showLaunching: value } });
+
+        props.filterRockets(filterData);
     }
 
     return (
@@ -79,16 +87,16 @@ const Filters = (props) => {
                 <div className="heading">Successful Launch</div>
                 <hr />
                 <div className="buttons">
-                    <Button value="True" click={(value)=>handleLaunch(value)}/>
-                    <Button value="False" click={(value)=>handleLaunch(value)}/>
+                    <Button value="True" disabled={disableButton} click={(value) => handleLaunch(value)} />
+                    <Button value="False" disabled={disableButton} click={(value) => handleLaunch(value)} />
                 </div>
             </div>
             <div className="successLanding">
                 <div className="heading">Successful Landing</div>
                 <hr />
                 <div className="buttons">
-                    <Button value="True" click={(value)=>handleLanding(value)}/>
-                    <Button value="False" click={(value)=>handleLanding(value)}/>
+                    <Button value="True" disabled={disableButton} click={(value) => handleLanding(value)} />
+                    <Button value="False" disabled={disableButton} click={(value) => handleLanding(value)} />
                 </div>
 
             </div>
@@ -96,4 +104,8 @@ const Filters = (props) => {
     );
 }
 
-export default Filters;
+const mapStateToProps = (state) => {
+    return state.getAllData
+}
+
+export default connect(mapStateToProps)(Filters);

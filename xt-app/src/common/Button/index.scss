@@ -6,8 +6,16 @@
     margin: 10px;
     width: 40%;
 
+    &.selected {
+        background-color: #7cba01;
+    }
+
     &:focus {
         background-color: #7cba01;
+    }
+
+    &:hover {
+        cursor: pointer;
     }
 }
 

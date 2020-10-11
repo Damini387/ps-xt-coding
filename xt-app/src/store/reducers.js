@@ -19,7 +19,7 @@ const getAllData = (state = initialState, action) => {
       console.log(filtered_rocket);
       return {
         ...state,
-        filtered_rocket: filtered_rocket
+        rockets: filtered_rocket
       }
     case FILTER_LANDING:
       // const filter_landing = initialState.data && initialState.data[0].filter((detail) => {
@@ -32,11 +32,11 @@ const getAllData = (state = initialState, action) => {
       }
     case FILTER_LAUNCH:
       const filter_launching = initialState.data && initialState.data[0].filter((detail) => {
-        return detail.launch_success === action.payload.showLaunching
+        return detail.launch_success.toString().toLowerCase() === action.payload.showLaunching.toLowerCase()
       });
       return {
         ...state,
-        success_launching: filter_launching
+        rockets: filter_launching
       }
     default:
       return state;

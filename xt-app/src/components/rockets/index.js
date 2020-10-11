@@ -9,7 +9,10 @@ const Rockets = (props) => {
     const { rocketData } = props;
 
     return (
-        <div className="rockets">
+        <div className={`rockets ${!rocketData ? 'empty' : ''}`}>
+
+            {!rocketData && <div className="loader">loading...</div>}
+
             {rocketData && rocketData.map((details, index) => {
                 const { links: { mission_patch }, mission_name, flight_number, mission_id, launch_year, launch_success } = details;
                 return <Rocket
