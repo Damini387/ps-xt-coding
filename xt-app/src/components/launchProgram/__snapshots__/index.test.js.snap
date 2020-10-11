@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Launch Program should render the Launch Program Component correctly 1`] = `
+<Fragment>
+  <h2>
+    SpaceX Launch Program
+  </h2>
+  <div
+    className="launchPad"
+  >
+    <Connect(Filters)
+      filterRockets={[Function]}
+    />
+    <Rockets />
+  </div>
+</Fragment>
+`;
