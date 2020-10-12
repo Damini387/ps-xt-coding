@@ -9,7 +9,6 @@
     "axios": "^0.20.0",
     "cors": "^2.8.5",
     "express": "^4.17.1",
-    "firebase-tools": "^8.12.1",
     "node-sass": "^4.14.1",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
@@ -18,16 +17,9 @@
     "redux": "^4.0.5"
   },
   "jest": {
-    "snapshotSerializers": [
-      "enzyme-to-json/serializer"
-    ],
-    "collectCoverageFrom": [
-      "src/**/*.js",
-      "!src/index.js"
-    ],
-    "coverageReporters": [
-      "text"
-    ]
+    "snapshotSerializers": ["enzyme-to-json/serializer"],
+    "collectCoverageFrom": ["src/**/*.js", "!src/index.js"],
+    "coverageReporters": ["text"]
   },
   "scripts": {
     "start": "react-scripts start",
