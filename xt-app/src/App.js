@@ -3,7 +3,9 @@ import Axios from 'axios';
 
 import './App.css';
 
+import Header from './common/Header';
 import LaunchProgram from './components/launchProgram/index';
+import Footer from './common/Footer';
 import getAllData from './store/reducers';
 
 function App() {
@@ -24,12 +26,9 @@ function App() {
 
   return (
     <div className="App">
+      <Header />
       <LaunchProgram data={filterData && filterData.rockets} />
-      <div className="doneBy">
-        <h3 className="center"> Developed By: </h3>
-        <span className="devName"> Damini Upadhyay </span>
-      </div>
-
+      <Footer />
     </div>
   );
 }
