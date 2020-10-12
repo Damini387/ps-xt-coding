@@ -14,6 +14,7 @@ To run the Application, run below commands:
 # Improvements (TODO)
 - Add lazy loading
 - Add proper error messages when data is not fetched
+- Add variables and use in *.scss
 
 # Issues
 - Make clicks smoother
