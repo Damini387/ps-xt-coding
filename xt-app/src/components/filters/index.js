@@ -15,6 +15,8 @@ const Filters = (props) => {
 
     const [disableButton, setDisableButton] = useState();
 
+    const [selected, setSelected] = useState(false);
+
     useEffect(() => {
         if (props.data.length === 0) {
             setDisableButton(true);
@@ -25,6 +27,8 @@ const Filters = (props) => {
 
     const handleClick = (year) => {
 
+        setSelected(false);
+
         dispatch({ type: 'FILTER_ROCKET_YEAR', payload: { showYear: year } });
 
         props.filterRockets(filterData);
@@ -34,7 +38,7 @@ const Filters = (props) => {
 
     const getButtonsOfYears = () => {
         return years && years.map((year, index) => {
-            return <Button value={year} key={index} disabled={disableButton} click={(text) => handleClick(text)} />
+            return <Button value={year} buttonSelected={selected} key={index} disabled={disableButton} click={(text) => handleClick(text)} />
         });
     }
 
@@ -66,16 +70,16 @@ const Filters = (props) => {
                 <div className="heading">Successful Launch</div>
                 <hr />
                 <div className="buttons">
-                    <Button value="True" disabled={disableButton} click={(value) => handleLaunch(value)} />
-                    <Button value="False" disabled={disableButton} click={(value) => handleLaunch(value)} />
+                    <Button value="True" buttonSelected={false} disabled={disableButton} click={(value) => handleLaunch(value)} />
+                    <Button value="False" buttonSelected={false} disabled={disableButton} click={(value) => handleLaunch(value)} />
                 </div>
             </div>
             <div className="successLanding">
                 <div className="heading">Successful Landing</div>
                 <hr />
                 <div className="buttons">
-                    <Button value="True" disabled={disableButton} click={(value) => handleLanding(value)} />
-                    <Button value="False" disabled={disableButton} click={(value) => handleLanding(value)} />
+                    <Button value="True" buttonSelected={false} disabled={disableButton} click={(value) => handleLanding(value)} />
+                    <Button value="False" buttonSelected={false} disabled={disableButton} click={(value) => handleLanding(value)} />
                 </div>
 
             </div>

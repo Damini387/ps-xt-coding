@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Filters from '../filters';
 import Rockets from '../rockets';
@@ -18,13 +18,10 @@ const LaunchProgram = (props) => {
     }
 
     return (
-        <Fragment>
-            <h2>SpaceX Launch Program</h2>
-            <div className="launchPad">
-                <Filters filterRockets={(data) => handleRockets(data)} />
-                <Rockets rocketData={rockets} />
-            </div>
-        </Fragment>
+        <div className="launchPad">
+            <Filters filterRockets={(data) => handleRockets(data)} />
+            <Rockets rocketData={rockets} />
+        </div>
     );
 
 }
