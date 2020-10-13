@@ -9,13 +9,13 @@ jobs:
             # Download and cache dependencies
             - restore_cache:
                   keys:
-                      - v1-dependencies-{{ checksum "/xt-app/package.json" }}
+                      - v1-dependencies-{{ checksum "package.json" }}
                       - v1-dependencies-
             - run:
                   name: Install Dependencies
                   command: npm install
             - save_cache:
-                  key: v1-npm-deps-{{ checksum "/xt-app/package-lock.json" }}
+                  key: v1-npm-deps-{{ checksum "package-lock.json" }}
                   paths:
                       - ./node_modules
             - run:
