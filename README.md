@@ -5,9 +5,9 @@ git clone `xp-app` to see the react application made for "launches by SpaceX pro
 To run the Application, run below commands:
 - `yarn install`
 - `yarn build`
-- `yarn start`
+- `yarn start` - This will run both server and client
 
-- `npm run server` - to run the node server, in order to fetch the launch programs
+- `npm run server` - If need to run server alone, then use this cmd (in order to fetch the launch programs)
 
 - `yarn run test` - to run the Jest
 
