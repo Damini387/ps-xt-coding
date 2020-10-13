@@ -1,9 +1,13 @@
 version: 2
 jobs:
+  test:
+    parameter: 
+      app-dir:
+        default: ~/xt-app
   build:
     docker:
       - image: 'circleci/node:8'
-    working_directory: ~/repo
+    working_directory: ~/xt-app
     steps:
       - checkout
       - restore_cache:
