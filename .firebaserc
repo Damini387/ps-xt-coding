@@ -1,5 +1,6 @@
 {
   "projects": {
-    "default": "ps-xt-coding"
+    "default": "ps-xt-coding",
+    "production": "ps-xt-coding-eb11b"
   }
 }
