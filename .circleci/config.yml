@@ -3,7 +3,7 @@ jobs:
     build:
         docker:
             - image: circleci/node:10.16.0
-        working_directory: ~/repo
+        working_directory: ./xt-app
         steps:
             - checkout
             # Download and cache dependencies
