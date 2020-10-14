@@ -41,13 +41,31 @@
 }
 
 .rockets {
-    &.empty {
+    width: 100%;
+
+    &.loading {
         justify-content: center;
         align-items: center;
         background-color: #fff;
         border-radius: 5px;
         margin: 0 10px;
         padding: 50px;
+    }
+
+    .noRocket {
+        display: flex;
+        flex-direction: column;
+        background-color: #fff;
+        margin: 10px;
+        border-radius: 5px;
+        padding: 20px;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+
+        &::after {
+            content: 'No Rocket Launched';
+        }
     }
 }
 
