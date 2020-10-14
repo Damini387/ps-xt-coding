@@ -1,6 +1,6 @@
 // TODO: add landing success
 
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import Rocket from './rocket';
 

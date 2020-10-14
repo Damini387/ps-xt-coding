@@ -41,7 +41,6 @@
 }
 
 .rockets {
-    width: 100%;
 
     &.loading {
         justify-content: center;
@@ -87,6 +86,7 @@
         display: flex;
         flex-wrap: wrap;
         flex-direction: row;
+        width: 100%;
 
         &.empty {
             width: calc(100% - 200px);
