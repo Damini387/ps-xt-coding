@@ -1,6 +1,6 @@
 // TODO: add landing success
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 
 import Rocket from './rocket';
 
@@ -9,9 +9,13 @@ const Rockets = (props) => {
     const { rocketData } = props;
 
     return (
-        <div className={`rockets ${!rocketData ? 'empty' : ''}`}>
+        <div className={`rockets ${!rocketData ? 'loading' : ''}`}>
 
             {!rocketData && <div className="loader"></div>}
+
+            {rocketData && rocketData.length === 0 && 
+                <div className="noRocket"></div>
+            }
 
             {rocketData && rocketData.map((details, index) => {
                 const { links: { mission_patch }, rocket: {first_stage: {cores: [{land_success}]}}, mission_name, flight_number, mission_id, launch_year, launch_success } = details;

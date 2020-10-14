@@ -13,7 +13,11 @@ function App() {
   const [filterData, dispatch] = useReducer(getAllData, []);
 
   useEffect(() => {
-    Axios.get("http://localhost:3030/allDetails").then(response => {
+    // TODO: need to check why data is not pulled when firebase is pulled
+    // data should be populated on https://us-central1-ps-xt-coding.cloudfunctions.net/api/all
+    // Axios.get("http://localhost:3030/allDetails").then(response => {
+
+      Axios.get("https://api.spacexdata.com/v3/launches?limit=100").then(response => {
 
       dispatch({
         type: "ROCKET_DETAILS",
