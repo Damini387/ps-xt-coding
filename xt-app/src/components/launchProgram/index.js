@@ -14,7 +14,7 @@ const LaunchProgram = (props) => {
     }, [props]);
 
     const handleRockets = (data) => {
-        setRockets(data.rockets);
+        setRockets(data && data.rockets);
     }
 
     return (
