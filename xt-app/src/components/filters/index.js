@@ -25,6 +25,10 @@ const Filters = (props) => {
         }
     }, [props]);
 
+    useEffect(() => {
+        props.filterRockets(filterData.state);
+    }, [filterData]);
+
     const handleClick = (year) => {
 
         setSelected(false);

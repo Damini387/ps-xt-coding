@@ -17,8 +17,9 @@ const getAllData = (state = initialState, action) => {
         return detail.launch_year === action.payload.showYear
       });
       return {
-        ...state,
-        rockets: filtered_rocket
+        state: {
+          rockets: filtered_rocket
+        }
       }
     case FILTER_LANDING:
       const removeNull = initialState.data && initialState.data[0].filter((detail) => {
@@ -28,8 +29,9 @@ const getAllData = (state = initialState, action) => {
           return detail.rocket.first_stage && detail.rocket.first_stage.cores[0].land_success.toString().toLowerCase() === action.payload.showLanding.toLowerCase();
       });
       return {
-        ...state,
-        rockets: filter_landing
+        state: {
+          rockets: filter_landing
+        }
       }
     case FILTER_LAUNCH:
       const filter_launching = initialState.data && initialState.data[0].filter((detail) => {
